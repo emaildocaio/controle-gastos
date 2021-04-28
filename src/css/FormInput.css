@@ -1,0 +1,148 @@
+form {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 29rem;
+    margin-bottom: 7rem;;
+}
+
+.formInput {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.linha{
+    margin-bottom: 2rem;
+}
+
+input {
+    
+    border: 1px solid rgb(185, 185, 185);
+}
+
+.primeira {
+    justify-content: space-between;
+}
+
+.primeira select {
+    width: 6.5rem;
+    border: 0;
+    font-size: 1.3rem;
+}
+
+.primeira input[type="number"]{
+    color: gray;
+    width: 14rem;
+    border: 0;
+    text-align: right;
+    font-size: 1.8rem;
+}
+
+select {
+    margin-top: 1rem;
+    height: 2rem;
+    width: 7rem;
+    color: gray;
+}
+
+option {
+    border: 0;
+}
+
+
+.primeira, .terceira, .quarta, .quinta {
+    display: flex;
+    align-items: center;
+}
+
+.segunda {
+    text-align: start;
+}
+
+.segunda label {
+    color: gray;
+}
+.segunda input[type="text"]{
+    width: 28.5rem;
+    height: 2rem;
+    color: gray;
+    margin-top: 0.5rem;
+}
+
+
+
+.terceira{
+    justify-content: space-around;
+}
+
+.quarta{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quarta select {
+    width: 15rem;
+    border: 0;
+    font-size: 1.2rem;
+}
+
+.quarta label{
+    color: gray;
+}
+
+.quarta input[type="date"]{
+    color: gray;
+    border: 0;
+    text-align:end ;
+}
+
+.quinta label{
+    color: gray;
+}
+
+.select-size  input{
+    display: none;
+  }
+  
+  .terceira label {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    line-height: 50px;
+    cursor: pointer;
+    border: 1px solid #719f7f;
+    color: #719f7f;
+  }
+  
+  
+  .terceira #small:checked ~ label[for="small"],
+  .terceira #medium:checked ~ label[for="medium"],
+  .terceira #large:checked ~ label[for="large"],
+  .terceira #x-large:checked ~ label[for="x-large"],
+  .terceira #xx-large:checked ~ label[for="xx-large"] {
+    background: #719f7f;
+    color: #ffffff;
+    border: 0;
+  }
+
+  .botao-add{
+      background-color: #b6cfc0;
+      border: 0;
+      color: white;
+      padding: 0.6rem 7rem;
+  }
+
+  .botao-clear{
+    background-color: #af5e4c;
+    border: 0;
+    color: white;
+    padding: 0.6rem 3rem;
+  }
+
+  input[type="submit"]:hover{
+    cursor: pointer;
+  }

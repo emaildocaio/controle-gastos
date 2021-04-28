@@ -1,0 +1,16 @@
+{
+    "categorias": [
+      {"id": "1",
+        "descrição": "Dinheiro"
+      },
+       {"id": "2",
+        "descrição": "Crédito"
+      },
+       {"id": "3",
+        "descrição": "Débito"
+      },
+       {"id": "4",
+        "descrição": "Outros"
+      }
+      ]
+  }
