@@ -1,6 +1,8 @@
 imoprt React, { useState } from 'react';
 import './css/FormInput.css';
 
+import instanciaAxios from './ajax/instanciaAxios';
+
 
 const formInput = () => {
     return (
