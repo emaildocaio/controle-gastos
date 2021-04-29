@@ -1,7 +1,7 @@
-imoprt React, { useState } from 'react';
+import React, { useState } from 'react';
 import './css/FormInput.css';
 
-import instanciaAxios from './ajax/instanciaAxios';
+//import instanciaAxios from './ajax/instanciaAxios';
 
 
 const formInput = () => {
@@ -10,7 +10,7 @@ const formInput = () => {
             <form className="formInput">
                 <div className="primeira linha">
                     <div>
-                        <select>
+                        <select id="moeda">
                             <option>BRL</option>
                             <option>USD</option>
                             <option>EUR</option>
