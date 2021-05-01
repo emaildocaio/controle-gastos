@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './css/App.css';
 import FormInput from './FormInput';
-import Persongaem from './Personagem'
+import Personagem from './Personagem';
+import Tabela from './Tabela';
 
 
 function App() {
@@ -20,9 +21,17 @@ function App() {
         >
           Learn React
         </a>
-        <FormInput/>
-        <Persongaem/>
       </header>
+
+      <div className="tela">
+        <section>
+            <FormInput/>
+            <Personagem/>
+          </section>
+          <section>
+            <Tabela/>
+          </section>
+        </div>
     </div>
   );
 }

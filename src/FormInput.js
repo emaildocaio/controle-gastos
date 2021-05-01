@@ -6,7 +6,7 @@ import './css/FormInput.css';
 
 const formInput = () => {
     return (
-        <div>
+        <> 
             <form className="formInput">
                 <div className="primeira linha">
                     <div>
@@ -64,9 +64,8 @@ const formInput = () => {
                 <input type="submit" value="Limpar" className="botao-clear"></input>
                 </div>
             </form>
-        </div>
+        </>
     )
 }
-
 
 export default formInput;
