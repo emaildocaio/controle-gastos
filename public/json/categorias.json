@@ -1,16 +1,19 @@
 {
     "categorias": [
       {"id": "1",
-        "descrição": "Dinheiro"
+        "descricao": "Entretenimento"
       },
        {"id": "2",
-        "descrição": "Crédito"
+        "descricao": "Acomodação"
       },
        {"id": "3",
-        "descrição": "Débito"
+        "descricao": "Alimentação"
       },
        {"id": "4",
-        "descrição": "Outros"
+        "descricao": "Transporte"
+      },
+      {"id": "5",
+        "descricao": "Tours"
       }
       ]
   }

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #6d4c6f;
+  margin: auto;
 }
 
 .App-logo {
@@ -39,7 +40,14 @@
 }
 
 .tela{
+  padding-top: 100px;
+}
+
+.conteudo-app {
   display: flex;
+  justify-content: center;
+  justify-content: space-around;
+
 }
 
 table {

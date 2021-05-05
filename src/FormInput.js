@@ -1,10 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import instanciaAxios from './ajax/instanciaAxios';
 import './css/FormInput.css';
 
 //import instanciaAxios from './ajax/instanciaAxios';
 
 
-const formInput = () => {
+const FormInput = () => {
+
+    const pegarCategorias = async () => {
+        try {
+            const resposta = await instanciaAxios.get('../json/categorias.json')
+            
+            setListaCategorias(resposta.data.categorias);
+
+        } catch(error) {
+            console.log(error.message)
+        }
+    }; 
+    
+    const [listaCategorias, setListaCategorias] = useState([]);
+
+
+    useEffect(() => {
+        pegarCategorias();
+    },[])
+
+    const OpcoesCategoriasComponente = () => {
+
+        const listaCategoriaJSX = listaCategorias.map( (item ) => {
+            return (
+                <option>{item.descricao}</option>
+            );
+        });
+
+        return listaCategoriaJSX;
+    }
+
     return (
         <> 
             <form className="formInput">
@@ -43,11 +74,7 @@ const formInput = () => {
                     <div>
                         <select className="moeda">
                             <option value="" disabled selected>Selecione uma Categoria</option>
-                            <option>Entretenimento</option>
-                            <option>Acomodação</option>
-                            <option>Alimentação</option>
-                            <option>Transporte</option>
-                            <option>Tours</option>
+                            <OpcoesCategoriasComponente/>
                         </select>
                     </div>
                     <div>
@@ -68,4 +95,4 @@ const formInput = () => {
     )
 }
 
-export default formInput;
+export default FormInput;

@@ -1,0 +1,56 @@
+{
+    "registro": [
+        { "id": "1",
+            "descricao": "Almoço restaurante Bacalhau do Tuga",
+            "idMeio": "1",
+            "idCategoria": "3",
+            "data": "2021-04-26",
+            "idMoeda": "1",
+            "valor": 72.00
+        },
+        { "id": "2",
+            "descricao": "Passeio de Barco",
+            "idMeio": "2",
+            "idCategoria": "5",
+            "data": "2021-04-27",
+            "idMoeda": "1",
+            "valor": 85.00
+        },
+        {
+            "id": "3",
+            "descricao": "Açaí",
+            "idMeio": "1",
+            "idCategoria": "3",
+            "data": "2021-04-27",
+            "idMoeda": "1",
+            "valor": 13.00
+        },
+        {
+            "id": "4",
+            "descricao": "Cervejas no El Farol",
+            "idMeio": "3",
+            "idCategoria": "1",
+            "data": "2021-04-27",
+            "idMoeda": "2",
+            "valor": 19.00
+        },
+        {
+            "id": "5",
+            "descricao": "Mergulho",
+            "idMeio": "4",
+            "idCategoria": "5",
+            "data": "2021-04-28",
+            "idMoeda": "3",
+            "valor": 30.00
+        },
+        {
+            "id": "6",
+            "descricao": "Casas Gregas",
+            "idMeio": "3",
+            "idCategoria": "2",
+            "data": "2021-04-29",
+            "idMoeda": "9",
+            "valor": 190.00
+        }
+    ]
+}
