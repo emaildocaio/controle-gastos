@@ -1,0 +1,20 @@
+{
+    "meios": [
+      {"id": "1",
+        "rotulo": "Dinheiro",
+        "valor": "dinheiro"
+      },
+       {"id": "2",
+        "rotulo": "Crédito",
+        "valor": "credito"
+      },
+       {"id": "3",
+        "rotulo": "Débito",
+        "valor": "debito"
+      },
+       {"id": "4",
+        "rotulo": "Outros",
+        "valor": "outros"
+      }
+      ]
+  }

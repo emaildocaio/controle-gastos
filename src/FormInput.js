@@ -25,6 +25,8 @@ const FormInput = () => {
         pegarCategorias();
     },[])
 
+    
+
     const OpcoesCategoriasComponente = () => {
 
         const listaCategoriaJSX = listaCategorias.map( (item ) => {
@@ -56,7 +58,6 @@ const FormInput = () => {
                     <label>Descrição</label>
                     <input type="text"></input>
                 </div>
-
                 <div className="select-size terceira linha">
                     <input type="radio" name="s-size" id="small" checked/>
                     <input type="radio" name="s-size" id="medium" />

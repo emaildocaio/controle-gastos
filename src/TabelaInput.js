@@ -1,42 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import './css/Tabela.css';
 import instanciaAxios from './ajax/instanciaAxios'
+import CorpoTabelaComponente from './CorpoTabelaComponente'
 
 const TabelaInput = () => {
     
+    const [listaTabela, setListaTabela] = useState([]);
+
     const pegarTabela = async () => {
 
         try{
             const resposta = await instanciaAxios.get('../json/tabela.json')
             setListaTabela(resposta.data.registro)
-            
-
+            //console.log(listaTabela[0].descricao);
         } catch(error) {
             console.log(error.message)
         }
     };
 
-    const [listaTabela, setListaTabela] = useState([]);
-
     useEffect(() => {
         pegarTabela();
     },[])
-
-    const RegistroTabelaComponente = () => {
-        const listaRegistroJSX = listaTabela.map((item) => {
-            return (
-                <tr>
-                    <td>{item.descricao}</td>
-                    <td>{item.idMeio}</td>
-                    <td>{item.idCategoria}</td>
-                    <td>{item.data}</td>
-                    <td>{item.idMoeda}</td>
-                    <td>{item.valor.toFixed(2)}</td>
-                </tr>
-            );
-        });
-        return listaRegistroJSX;
-    }
 
     return (
         <table class="tabela-estilo">
@@ -50,18 +34,10 @@ const TabelaInput = () => {
                     <th>Valor</th>
                 </tr>
             </thead>
-            <tbody>
-                <RegistroTabelaComponente/>
-            </tbody>
+                <CorpoTabelaComponente listaTabela = {listaTabela}/>
             <tfoot>
                 <tr>
                     <td colSpan="6">Total em Reais: $170,00</td>
-                </tr>
-                <tr>
-                    <td colSpan="6">Total em Dólar: $199,00</td>
-                </tr>
-                <tr>
-                    <td colSpan="6">Total em Euro: $130,00</td>
                 </tr>
             </tfoot>
         </table>
