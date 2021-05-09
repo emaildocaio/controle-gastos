@@ -26,7 +26,8 @@ const CorpoTabelaComponente = (props) => {
 const LinhaTabelaComponente = (props) => {
     
     const [listaCategorias, setListaCategorias] = useState([]);
-    const [listaMeios, setListaMeios] =useState([]);
+    const [listaMeios, setListaMeios] = useState([]);
+    const [listaMoedas, setListaMoedas] = useState([])
     
 
     const pegarCategorias = async () => {
@@ -47,6 +48,15 @@ const LinhaTabelaComponente = (props) => {
         }
     }
 
+    const pegarMoedas = async () => {
+        try {
+            const resposta = await instanciaAxios.get('../json/moedas.json')
+            setListaMoedas(resposta.data.moedas)
+        } catch(error) {
+            console.log(error.message)
+        }
+    };
+
     const categoriaGasto = listaCategorias.find( item => {
         return item.id === props.idCategoria;
     });
@@ -54,12 +64,17 @@ const LinhaTabelaComponente = (props) => {
     const meioGasto = listaMeios.find( item => {
         return item.id === props.idMeio;
     });
+
+    const moedaGasto = listaMoedas.find( item => {
+        return item.id === props.idMoeda;
+    });
         
   
 
     useEffect(()=> {
         pegarCategorias();
         pegarMeios();
+        pegarMoedas();
     }, []);
 
 
@@ -71,7 +86,7 @@ const LinhaTabelaComponente = (props) => {
                 <td>{meioGasto ? meioGasto.rotulo : ""}</td>
                 <td>{categoriaGasto ? categoriaGasto.descricao : ""}</td>
                 <td>{props.data}</td>
-                <td>{props.idMoeda}</td>
+                <td>{moedaGasto ? moedaGasto.rotulo : ""}</td>
                 <td>{props.valor.toFixed(2)}</td>
             </tr>
         </>

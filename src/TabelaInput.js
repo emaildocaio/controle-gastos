@@ -34,7 +34,10 @@ const TabelaInput = () => {
                     <th>Valor</th>
                 </tr>
             </thead>
-                <CorpoTabelaComponente listaTabela = {listaTabela}/>
+                <CorpoTabelaComponente 
+                listaTabela = {listaTabela}
+                setListaTabela = {setListaTabela}
+                />
             <tfoot>
                 <tr>
                     <td colSpan="6">Total em Reais: $170,00</td>

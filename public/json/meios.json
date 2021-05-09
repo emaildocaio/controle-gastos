@@ -2,19 +2,23 @@
     "meios": [
       {"id": "1",
         "rotulo": "Dinheiro",
-        "valor": "dinheiro"
+        "valor": "dinheiro",
+        "htmlfor": "small"
       },
        {"id": "2",
         "rotulo": "Crédito",
-        "valor": "credito"
+        "valor": "credito",
+        "htmlfor": "medium"
       },
        {"id": "3",
         "rotulo": "Débito",
-        "valor": "debito"
+        "valor": "debito",
+        "htmlfor": "large"
       },
        {"id": "4",
         "rotulo": "Outros",
-        "valor": "outros"
+        "valor": "outros",
+        "htmlfor": "x-large"
       }
       ]
   }

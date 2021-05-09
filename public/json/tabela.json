@@ -31,7 +31,7 @@
             "idMeio": "3",
             "idCategoria": "1",
             "data": "2021-04-27",
-            "idMoeda": "2",
+            "idMoeda": "1",
             "valor": 19.00
         },
         {
@@ -40,7 +40,7 @@
             "idMeio": "4",
             "idCategoria": "5",
             "data": "2021-04-28",
-            "idMoeda": "3",
+            "idMoeda": "1",
             "valor": 30.00
         },
         {
@@ -49,7 +49,7 @@
             "idMeio": "3",
             "idCategoria": "2",
             "data": "2021-04-29",
-            "idMoeda": "9",
+            "idMoeda": "1",
             "valor": 190.00
         }
     ]

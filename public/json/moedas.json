@@ -1,0 +1,24 @@
+{
+    "moedas": [
+      {"id": "1",
+        "rotulo": "R$",
+        "valor": "real",
+        "codigo": "BRL"
+      },
+       {"id": "2",
+        "rotulo": "$",
+        "valor": "dolar",
+        "codigo": "USD"
+      },
+       {"id": "3",
+        "rotulo": "€",
+        "valor": "euro",
+        "codigo": "EUR"
+      },
+      {"id": "4",
+        "rotulo": "฿",
+        "valor": "baht",
+        "codigo": "THB"
+      }
+      ]
+  }
