@@ -94,7 +94,11 @@ const FormInput = (props) => {
         const novoItem = {
             "id": props.listaTabela.length.toString(),
             "descricao": props.descricaoNovoItem,
-            "idCategoria": props.categoriaNovoItem
+            "idMeio": props.meioNovoItem,
+            "idCategoria": props.categoriaNovoItem,
+            "data": props.dataNovoItem,
+            "idMoeda": props.moedaNovoItem,
+            "valor": props.valorNovoItem
         };
 
         props.setListaTabela( [...props.listaTabela, novoItem ]);
@@ -110,7 +114,7 @@ const FormInput = (props) => {
                         </select>
                     </div>
                     <div>
-                        <input type="number" placeholder="0,00"></input>
+                        <input type="number" placeholder="0,00" value = { props.valorNovoItem } onChange = { (evento) => props.setValorNovoItem(evento.target.value) }></input>
                     </div>
                 </div>
 
@@ -119,7 +123,7 @@ const FormInput = (props) => {
                     <input value= { props.descricaoNovoItem } name="descricao" type="text" onChange = { (evento) => props.setDescricaoNovoItem(evento.target.value) } required></input>
                     {/* <p>{ descricaoNovoItem } </p> */}
                 </div>
-                <div className="select-size terceira linha">
+                <div className="select-size terceira linha" value = { props.meioNovoItem } onChange = { (evento) => props.setMeioNovoItem(evento.target.value) }>
                     <input type="radio" name="s-size" id="small"/>
                     <input type="radio" name="s-size" id="medium"/>
                     <input type="radio" name="s-size" id="large"/>
@@ -132,7 +136,7 @@ const FormInput = (props) => {
 
                 <div className="quarta linha">
                     <div>
-                        <select value = { props.categoriaNovoItem } className="categoria" onChange = { (evento) => props.setCategoriaNovoItem(evento.target.value) }>
+                        <select className="categoria" onChange = { (evento) => props.setCategoriaNovoItem(evento.target.value) }>
                             <option value={ null } disabled selected>Selecione uma Categoria</option>
                             <OpcoesCategoriasComponente/>
                         </select>
@@ -140,7 +144,7 @@ const FormInput = (props) => {
                     </div>
                     <div>
                         <label>Data</label>
-                        <input type="date" placeholder=""></input>
+                        <input type="date" placeholder="" value = { props.dataNovoItem } onChange = { (evento) => props.setDataNovoItem(evento.target.value) }></input>
                     </div>
                 </div>
                 <div className="quinta linha">

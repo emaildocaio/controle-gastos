@@ -10,7 +10,11 @@ import instanciaAxios from './ajax/instanciaAxios'
 function App() {
 
   const [descricaoNovoItem, setDescricaoNovoItem] = useState('');
-  const [categoriaNovoItem, setCategoriaNovoItem ] = useState('') 
+  const [categoriaNovoItem, setCategoriaNovoItem ] = useState('')
+  const [moedaNovoItem, setMoedaNovoItem ] = useState('')
+  const [meioNovoItem, setMeioNovoItem] = useState('')
+  const [dataNovoItem, setDataNovoItem] = useState('')
+  const [valorNovoItem, setValorNovoItem] = useState('') 
 
   const [listaTabela, setListaTabela] = useState([]);
 
@@ -35,20 +39,41 @@ function App() {
      
       <div className="tela">
         <section>
-          <Personagem/>  
+          <Personagem
+            valorNovoItem = { valorNovoItem }
+          />  
         </section>
         <section class="conteudo-app">
           <FormInput 
-            descricaoNovoItem = { descricaoNovoItem } 
-            categoriaNovoItem = { categoriaNovoItem }
+            moedaNovoItem = { moedaNovoItem }
+            setMoedaNovoItem = { setMoedaNovoItem }
+
+            valorNovoItem = { valorNovoItem }
+            setValorNovoItem = { setValorNovoItem }
+
+            descricaoNovoItem = { descricaoNovoItem }
             setDescricaoNovoItem = {setDescricaoNovoItem }
+
+            meioNovoItem = { meioNovoItem }
+            setMeioNovoItem = { setMeioNovoItem } 
+
+            categoriaNovoItem = { categoriaNovoItem }
             setCategoriaNovoItem = { setCategoriaNovoItem }
+
+            dataNovoItem = { dataNovoItem }
+            setDataNovoItem = { setDataNovoItem }
+
             listaTabela = { listaTabela}
             setListaTabela = { setListaTabela }
             />
           <TabelaInput
-            descricaoNovoItem = { descricaoNovoItem } 
+            moedaNovoItem = { moedaNovoItem }
+            valorNovoItem = { valorNovoItem }
+            descricaoNovoItem = { descricaoNovoItem }
+            meioNovoItem = { meioNovoItem } 
             categoriaNovoItem = { categoriaNovoItem }
+            dataNovoItem = { dataNovoItem }
+
             listaTabela = { listaTabela}
            />
         </section>

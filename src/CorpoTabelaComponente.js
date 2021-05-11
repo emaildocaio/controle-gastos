@@ -19,15 +19,6 @@ const CorpoTabelaComponente = (props) => {
                  )
             }) }
 
-            <tr>
-                <td>{props.descricaoNovoItem}</td>
-                <td></td>
-                <td>{props.categoriaNovoItem}</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-
         </tbody>
         
     );
@@ -99,7 +90,6 @@ const LinhaTabelaComponente = (props) => {
                 <td>{moedaGasto ? moedaGasto.rotulo : ""}</td>
                 <td>{props.valor}</td>
             </tr>
-
         </>
     )
 }

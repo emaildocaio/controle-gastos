@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './css/Tabela.css';
-import instanciaAxios from './ajax/instanciaAxios'
 import CorpoTabelaComponente from './CorpoTabelaComponente'
 
 const TabelaInput = (props) => {
@@ -21,12 +20,16 @@ const TabelaInput = (props) => {
                 <CorpoTabelaComponente 
                 listaTabela = {props.listaTabela}
                 setListaTabela = {props.setListaTabela}
+                moedaNovoItem = { props.moedaNovoItem}
+                valorNovoItem = { props.valorNovoItem}
                 descricaoNovoItem = { props.descricaoNovoItem } 
+                meioNovoItem = {props.meioNovoItem}
                 categoriaNovoItem = { props.categoriaNovoItem }
+                dataNovoItem = {props.dataNovoItem }
                 />
             <tfoot>
                 <tr>
-                    <td colSpan="6">Total em Reais: $170,00</td>
+                    <td colSpan="6">Quantidade de itens: {props.listaTabela.length}</td>
                 </tr>
             </tfoot>
         </table>
