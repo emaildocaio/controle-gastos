@@ -17,7 +17,17 @@ const CorpoTabelaComponente = (props) => {
                     />
 
                  )
-            }) }   
+            }) }
+
+            <tr>
+                <td>{props.descricaoNovoItem}</td>
+                <td></td>
+                <td>{props.categoriaNovoItem}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
         </tbody>
         
     );
@@ -87,8 +97,9 @@ const LinhaTabelaComponente = (props) => {
                 <td>{categoriaGasto ? categoriaGasto.descricao : ""}</td>
                 <td>{props.data}</td>
                 <td>{moedaGasto ? moedaGasto.rotulo : ""}</td>
-                <td>{props.valor.toFixed(2)}</td>
+                <td>{props.valor}</td>
             </tr>
+
         </>
     )
 }

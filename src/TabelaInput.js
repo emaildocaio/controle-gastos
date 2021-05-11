@@ -3,25 +3,9 @@ import './css/Tabela.css';
 import instanciaAxios from './ajax/instanciaAxios'
 import CorpoTabelaComponente from './CorpoTabelaComponente'
 
-const TabelaInput = () => {
+const TabelaInput = (props) => {
     
-    const [listaTabela, setListaTabela] = useState([]);
-
-    const pegarTabela = async () => {
-
-        try{
-            const resposta = await instanciaAxios.get('../json/tabela.json')
-            setListaTabela(resposta.data.registro)
-            //console.log(listaTabela[0].descricao);
-        } catch(error) {
-            console.log(error.message)
-        }
-    };
-
-    useEffect(() => {
-        pegarTabela();
-    },[])
-
+   
     return (
         <table class="tabela-estilo">
             <thead>
@@ -35,8 +19,10 @@ const TabelaInput = () => {
                 </tr>
             </thead>
                 <CorpoTabelaComponente 
-                listaTabela = {listaTabela}
-                setListaTabela = {setListaTabela}
+                listaTabela = {props.listaTabela}
+                setListaTabela = {props.setListaTabela}
+                descricaoNovoItem = { props.descricaoNovoItem } 
+                categoriaNovoItem = { props.categoriaNovoItem }
                 />
             <tfoot>
                 <tr>

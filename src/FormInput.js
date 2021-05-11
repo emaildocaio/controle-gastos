@@ -1,14 +1,14 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import instanciaAxios from './ajax/instanciaAxios';
 import './css/FormInput.css';
 
-const FormInput = () => {
+
+const FormInput = (props) => {
 
     const [listaCategorias, setListaCategorias] = useState([]);
     const [listaMeios, setListaMeios] = useState([]);
     const [listaMoedas, setListaMoedas] = useState([]);
-    const [descricao, setDescricao] = useState();
-    const [obj, setObj] = useState({nome: "Teste"});
+ 
     
 
     const pegarCategorias = async () => {
@@ -38,24 +38,17 @@ const FormInput = () => {
         }
     };
 
-    // const categoriaGasto = listaCategorias.find( item => {
-    //     return item.id === listaCategorias.idCategoria;
-    // });
+    const categoriaGasto = listaCategorias.find( item => {
+        return item.id === listaCategorias.idCategoria;
+    });
 
-    // const meioGasto = listaMeios.find( item => {
-    //     return item.id === listaMeios.idMeio;
-    // })
+    const meioGasto = listaMeios.find( item => {
+        return item.id === listaMeios.idMeio;
+    })
 
-    // const moedaGasto = listaMoedas.find( item => {
-    //     return item.id === listaMoedas.idMoeda;
-    // })
-
-    const cadastrar = (evento) => {
-        setObj({
-            ...obj,
-            [evento.target.name]: evento.target.value
-        })
-    };
+    const moedaGasto = listaMoedas.find( item => {
+        return item.id === listaMoedas.idMoeda;
+    })
 
     useEffect(()=> {
         pegarCategorias();
@@ -69,7 +62,7 @@ const FormInput = () => {
     const OpcoesCategoriasComponente = () => {
         const listaCategoriaJSX = listaCategorias.map( (item ) => {
             return (
-                <option>{item.descricao}</option>
+                <option key={ item.id } value={ item.id }>{item.descricao}</option>
             );
         });
         return listaCategoriaJSX;
@@ -87,20 +80,29 @@ const FormInput = () => {
     const OpcoesMoedasComponente = () => {
         const listaMoedasJSX = listaMoedas.map( (item) => {
             return (
-                <option>{item.codigo}</option>
+                <option key = {item.id }>{item.codigo}</option>
             );
         });
         return listaMoedasJSX;
     }
 
-    // const teste = (a, b) => {
-    //     console.log(a+b);
-    // }
-    // teste(1, 2);
+    const incluirItem = (event) => {
+        // console.log(`Usuário escolheu a categoria ${props.categoriaNovoItem} e a descrição foi ${props.descricaoNovoItem}`)
+
+        event.preventDefault();
+
+        const novoItem = {
+            "id": props.listaTabela.length.toString(),
+            "descricao": props.descricaoNovoItem,
+            "idCategoria": props.categoriaNovoItem
+        };
+
+        props.setListaTabela( [...props.listaTabela, novoItem ]);
+    }
 
     return (
         <> 
-            <form className="formInput">
+            <form className="formInput" onSubmit = { incluirItem }>
                 <div className="primeira linha">
                     <div>
                         <select id="moeda">
@@ -114,11 +116,8 @@ const FormInput = () => {
 
                 <div className="segunda linha">
                     <label>Descrição</label>
-                    <input name="descricao" type="text" onChange = {(e) => cadastrar(e)}></input>
-                    {/* <label>{descricao}</label> */}
-                    <div>
-                        {JSON.stringify(obj)}
-                    </div>
+                    <input value= { props.descricaoNovoItem } name="descricao" type="text" onChange = { (evento) => props.setDescricaoNovoItem(evento.target.value) } required></input>
+                    {/* <p>{ descricaoNovoItem } </p> */}
                 </div>
                 <div className="select-size terceira linha">
                     <input type="radio" name="s-size" id="small"/>
@@ -133,12 +132,11 @@ const FormInput = () => {
 
                 <div className="quarta linha">
                     <div>
-                        <select className="moeda">
-                            <option value="" disabled selected>Selecione uma Categoria</option>
-                            
+                        <select value = { props.categoriaNovoItem } className="categoria" onChange = { (evento) => props.setCategoriaNovoItem(evento.target.value) }>
+                            <option value={ null } disabled selected>Selecione uma Categoria</option>
                             <OpcoesCategoriasComponente/>
-                        
                         </select>
+                        {/* <p>{categoriaNovoItem}</p> */}
                     </div>
                     <div>
                         <label>Data</label>
