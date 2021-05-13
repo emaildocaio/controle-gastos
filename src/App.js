@@ -75,6 +75,7 @@ function App() {
             dataNovoItem = { dataNovoItem }
 
             listaTabela = { listaTabela}
+            setListaTabela = { setListaTabela}
            />
         </section>
       </div>

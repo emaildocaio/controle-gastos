@@ -9,12 +9,15 @@ const CorpoTabelaComponente = (props) => {
             { props.listaTabela.map((item) => {
                  return (
                    <LinhaTabelaComponente 
+                    id = {item.id}
                     descricao = {item.descricao} 
                     idMeio = {item.idMeio}
                     idCategoria = {item.idCategoria}
                     data = {item.data}
                     idMoeda = {item.idMoeda}
                     valor = {item.valor}
+                    listaTabela = {props.listaTabela}
+                    setListaTabela = { props.setListaTabela }
                     />
 
                  )
@@ -72,16 +75,14 @@ const LinhaTabelaComponente = (props) => {
     });
 
     const removerItem = (idSelecionado) => {
-        console.log(`O id selecionado foi: ${idSelecionado }`);
+        console.log(`O id selecionado foi: ${idSelecionado}`)
 
         const _listaTabela = props.listaTabela.filter((item) => {
             return item.id !== idSelecionado;
-        });
-        
+        })
         props.setListaTabela(_listaTabela);
     }
         
-  
 
     useEffect(()=> {
         pegarCategorias();
