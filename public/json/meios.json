@@ -3,22 +3,22 @@
       {"id": "1",
         "rotulo": "Dinheiro",
         "valor": "dinheiro",
-        "htmlfor": "small"
+        "htmlfor": "dinheiro"
       },
        {"id": "2",
         "rotulo": "Crédito",
         "valor": "credito",
-        "htmlfor": "medium"
+        "htmlfor": "credito"
       },
        {"id": "3",
         "rotulo": "Débito",
         "valor": "debito",
-        "htmlfor": "large"
+        "htmlfor": "debito"
       },
        {"id": "4",
         "rotulo": "Outros",
         "valor": "outros",
-        "htmlfor": "x-large"
+        "htmlfor": "outros"
       }
       ]
   }

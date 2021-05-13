@@ -119,11 +119,10 @@ option {
   }
   
   
-  .terceira #small:checked ~ label[for="small"],
-  .terceira #medium:checked ~ label[for="medium"],
-  .terceira #large:checked ~ label[for="large"],
-  .terceira #x-large:checked ~ label[for="x-large"],
-  .terceira #xx-large:checked ~ label[for="xx-large"] {
+  .terceira #dinheiro:checked ~ label[for="dinheiro"],
+  .terceira #credito:checked ~ label[for="credito"],
+  .terceira #debito:checked ~ label[for="debito"],
+  .terceira #outros:checked ~ label[for="outros"] {
     background: #719f7f;
     color: #ffffff;
     border: 0;

@@ -3,7 +3,8 @@ import './css/Tabela.css';
 import CorpoTabelaComponente from './CorpoTabelaComponente'
 
 const TabelaInput = (props) => {
-    
+
+   
    
     return (
         <table class="tabela-estilo">
@@ -15,6 +16,7 @@ const TabelaInput = (props) => {
                     <th>Data</th>
                     <th>Moeda</th>
                     <th>Valor</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
                 <CorpoTabelaComponente 

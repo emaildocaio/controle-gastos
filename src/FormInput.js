@@ -71,7 +71,9 @@ const FormInput = (props) => {
     const OpcoesMeiosComponente = () => {
         const listaMeiosJSX = listaMeios.map( (item ) => {
             return (
-                <label for= {item.htmlfor}> {item.rotulo} </label>
+                <>
+                    <label value = {item.id} for= {item.htmlfor}> {item.rotulo} </label>
+                </>
             );
         });
         return listaMeiosJSX;
@@ -80,14 +82,13 @@ const FormInput = (props) => {
     const OpcoesMoedasComponente = () => {
         const listaMoedasJSX = listaMoedas.map( (item) => {
             return (
-                <option key = {item.id }>{item.codigo}</option>
+                <option value = {item.id} key = {item.id }>{item.codigo}</option>
             );
         });
         return listaMoedasJSX;
     }
 
     const incluirItem = (event) => {
-        // console.log(`Usuário escolheu a categoria ${props.categoriaNovoItem} e a descrição foi ${props.descricaoNovoItem}`)
 
         event.preventDefault();
 
@@ -109,7 +110,7 @@ const FormInput = (props) => {
             <form className="formInput" onSubmit = { incluirItem }>
                 <div className="primeira linha">
                     <div>
-                        <select id="moeda">
+                        <select id="moeda" value = { props.moedaNovoItem } onChange = { (evento) => props.setMoedaNovoItem(evento.target.value) }>
                             <OpcoesMoedasComponente/>
                         </select>
                     </div>
@@ -123,12 +124,11 @@ const FormInput = (props) => {
                     <input value= { props.descricaoNovoItem } name="descricao" type="text" onChange = { (evento) => props.setDescricaoNovoItem(evento.target.value) } required></input>
                     {/* <p>{ descricaoNovoItem } </p> */}
                 </div>
-                <div className="select-size terceira linha" value = { props.meioNovoItem } onChange = { (evento) => props.setMeioNovoItem(evento.target.value) }>
-                    <input type="radio" name="s-size" id="small"/>
-                    <input type="radio" name="s-size" id="medium"/>
-                    <input type="radio" name="s-size" id="large"/>
-                    <input type="radio" name="s-size" id="x-large"/>
-                    <input type="radio" name="s-size" id="xx-large"/>
+                <div className="select-size terceira linha">
+                    <input type="radio" value="" name="meio" id="dinheiro"/>
+                    <input type="radio" value="" name="meio" id="credito"/>
+                    <input type="radio" value="" name="meio" id="debito"/>
+                    <input type="radio" value="" name="meio" id="outros"/>
                     
                     <OpcoesMeiosComponente/> 
                 

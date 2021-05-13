@@ -11,7 +11,7 @@ function App() {
 
   const [descricaoNovoItem, setDescricaoNovoItem] = useState('');
   const [categoriaNovoItem, setCategoriaNovoItem ] = useState('')
-  const [moedaNovoItem, setMoedaNovoItem ] = useState('')
+  const [moedaNovoItem, setMoedaNovoItem ] = useState('1')
   const [meioNovoItem, setMeioNovoItem] = useState('')
   const [dataNovoItem, setDataNovoItem] = useState('')
   const [valorNovoItem, setValorNovoItem] = useState('') 
