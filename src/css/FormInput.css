@@ -71,7 +71,12 @@ option {
     margin-top: 0.5rem;
 }
 
-
+.meios input[type="text"]{
+    width: 28.5rem;
+    height: 2rem;
+    color: gray;
+    margin-top: 0.5rem;
+}
 
 .terceira{
     justify-content: space-around;

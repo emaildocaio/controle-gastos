@@ -54,7 +54,7 @@ const FormInput = (props) => {
         pegarCategorias();
         pegarMeios();
         pegarMoedas();
-
+ 
     }, []);
 
     
@@ -70,10 +70,13 @@ const FormInput = (props) => {
 
     const OpcoesMeiosComponente = () => {
         const listaMeiosJSX = listaMeios.map( (item ) => {
+
             return (
-                <>
-                    <label value = {item.id} for= {item.htmlfor}> {item.rotulo} </label>
-                </>
+            <>
+                <option key={ item.id } value={ item.id }>{item.rotulo}</option>
+            </>
+            /* <input type="radio" value={item.valor} name="meio" id= {item.htmlfor} onChange = { (evento) => props.setMeioNovoItem(evento.currentTarget.value) }/>
+            <label value = {item.id} htmlFor= {item.htmlfor}> {item.rotulo} </label> */
             );
         });
         return listaMeiosJSX;
@@ -110,41 +113,39 @@ const FormInput = (props) => {
             <form className="formInput" onSubmit = { incluirItem }>
                 <div className="primeira linha">
                     <div>
-                        <select id="moeda" value = { props.moedaNovoItem } onChange = { (evento) => props.setMoedaNovoItem(evento.target.value) }>
+                        <select id="moeda" onChange = { (evento) => props.setMoedaNovoItem(evento.target.value) }>
                             <OpcoesMoedasComponente/>
                         </select>
                     </div>
                     <div>
-                        <input type="number" placeholder="0,00" value = { props.valorNovoItem } onChange = { (evento) => props.setValorNovoItem(evento.target.value) }></input>
+                        <input type="number" placeholder="0,00" value = {props.valorNovoItem}></input>
                     </div>
                 </div>
 
                 <div className="segunda linha">
                     <label>Descrição</label>
-                    <input value= { props.descricaoNovoItem } name="descricao" type="text" onChange = { (evento) => props.setDescricaoNovoItem(evento.target.value) } required></input>
-                    {/* <p>{ descricaoNovoItem } </p> */}
+                    <input name="descricao" type="text" onChange = { (evento) => props.setDescricaoNovoItem(evento.target.value) } 
+                    required></input>
+                    
                 </div>
                 <div className="select-size terceira linha">
-                    <input type="radio" value="" name="meio" id="dinheiro"/>
-                    <input type="radio" value="" name="meio" id="credito"/>
-                    <input type="radio" value="" name="meio" id="debito"/>
-                    <input type="radio" value="" name="meio" id="outros"/>
-                    
-                    <OpcoesMeiosComponente/> 
-                
+                    <select className="meios">
+                    {/* onChange = { (evento) => props.setMeioNovoItem(evento.target.value) } */}
+                        <option value={ null } disabled selected>Selecione a forma de pagamento</option>
+                        <OpcoesMeiosComponente/> 
+                    </select> 
                 </div>
 
                 <div className="quarta linha">
                     <div>
-                        <select className="categoria" onChange = { (evento) => props.setCategoriaNovoItem(evento.target.value) }>
+                        <select className="categoria">
                             <option value={ null } disabled selected>Selecione uma Categoria</option>
                             <OpcoesCategoriasComponente/>
                         </select>
-                        {/* <p>{categoriaNovoItem}</p> */}
                     </div>
                     <div>
                         <label>Data</label>
-                        <input type="date" placeholder="" value = { props.dataNovoItem } onChange = { (evento) => props.setDataNovoItem(evento.target.value) }></input>
+                        <input type="date" placeholder="" value = { props.dataNovoItem } ></input>
                     </div>
                 </div>
                 <div className="quinta linha">
@@ -156,7 +157,7 @@ const FormInput = (props) => {
                 <input type="submit" value="Limpar" className="botao-clear"></input>
                 </div>
             </form>
-        </>
+        </> 
     )
 }
 
