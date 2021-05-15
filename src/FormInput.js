@@ -113,24 +113,22 @@ const FormInput = (props) => {
             <form className="formInput" onSubmit = { incluirItem }>
                 <div className="primeira linha">
                     <div>
-                        <select id="moeda" onChange = { (evento) => props.setMoedaNovoItem(evento.target.value) }>
+                        <select id="moeda" value = {props.moedaNovoItem } onChange = { (evento) => props.setMoedaNovoItem(evento.target.value) }>
                             <OpcoesMoedasComponente/>
                         </select>
                     </div>
                     <div>
-                        <input type="number" placeholder="0,00" value = {props.valorNovoItem}></input>
+                        <input type="number" value= {props.valorNovoItem } placeholder="0,00" onChange = { (evento) => props.setValorNovoItem(evento.target.value) }></input>
                     </div>
                 </div>
 
                 <div className="segunda linha">
                     <label>Descrição</label>
-                    <input name="descricao" type="text" onChange = { (evento) => props.setDescricaoNovoItem(evento.target.value) } 
-                    required></input>
+                    <input name="descricao" type="text" required onChange = { (evento)=> {props.setDescricaoNovoItem(evento.target.value)}}></input>
                     
                 </div>
                 <div className="select-size terceira linha">
-                    <select className="meios">
-                    {/* onChange = { (evento) => props.setMeioNovoItem(evento.target.value) } */}
+                    <select className="meios" value = {props.meioNovoItem} onChange = { (evento) => props.setMeioNovoItem(evento.target.value) }>
                         <option value={ null } disabled selected>Selecione a forma de pagamento</option>
                         <OpcoesMeiosComponente/> 
                     </select> 
@@ -138,14 +136,14 @@ const FormInput = (props) => {
 
                 <div className="quarta linha">
                     <div>
-                        <select className="categoria">
+                        <select className="categoria" value={ props.categoriaNovoItem} onChange = { (evento) => props.setCategoriaNovoItem(evento.target.value) }>
                             <option value={ null } disabled selected>Selecione uma Categoria</option>
                             <OpcoesCategoriasComponente/>
                         </select>
                     </div>
                     <div>
                         <label>Data</label>
-                        <input type="date" placeholder="" value = { props.dataNovoItem } ></input>
+                        <input type="date" placeholder="" value = { props.dataNovoItem } onChange = { (evento) => props.setDataNovoItem(evento.target.value) }></input>
                     </div>
                 </div>
                 <div className="quinta linha">
