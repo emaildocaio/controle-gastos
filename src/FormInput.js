@@ -1,3 +1,4 @@
+import { func } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import instanciaAxios from './ajax/instanciaAxios';
 import './css/FormInput.css';
@@ -73,10 +74,10 @@ const FormInput = (props) => {
 
             return (
             <>
-                <option key={ item.id } value={ item.id }>{item.rotulo}</option>
+                <input type="radio" value={item.id} name="meio" id= {item.htmlfor} onChange = { (evento) => props.setMeioNovoItem(evento.currentTarget.value) }/>
+                <label value={item.id} htmlFor= {item.htmlfor}> {item.rotulo} </label>
             </>
-            /* <input type="radio" value={item.valor} name="meio" id= {item.htmlfor} onChange = { (evento) => props.setMeioNovoItem(evento.currentTarget.value) }/>
-            <label value = {item.id} htmlFor= {item.htmlfor}> {item.rotulo} </label> */
+           
             );
         });
         return listaMeiosJSX;
@@ -106,11 +107,22 @@ const FormInput = (props) => {
         };
 
         props.setListaTabela( [...props.listaTabela, novoItem ]);
+        // limparCampo();
     }
+
+    // function limparCampo() {
+    //     props.setValorNovoItem("");
+    //     props.setDescricaoNovoItem("");
+    //     props.setMoedaNovoItem("");
+    //     props.setCategoriaNovoItem("");
+    //     props.setMeioNovoItem("");
+    //     props.setDataNovoItem("");
+    // }
+   
 
     return (
         <> 
-            <form className="formInput" onSubmit = { incluirItem }>
+            <form className="formInput" onSubmit = { incluirItem } id="myForm">
                 <div className="primeira linha">
                     <div>
                         <select id="moeda" value = {props.moedaNovoItem } onChange = { (evento) => props.setMoedaNovoItem(evento.target.value) }>
@@ -128,10 +140,7 @@ const FormInput = (props) => {
                     
                 </div>
                 <div className="select-size terceira linha">
-                    <select className="meios" value = {props.meioNovoItem} onChange = { (evento) => props.setMeioNovoItem(evento.target.value) }>
-                        <option value={ null } disabled selected>Selecione a forma de pagamento</option>
                         <OpcoesMeiosComponente/> 
-                    </select> 
                 </div>
 
                 <div className="quarta linha">
@@ -152,7 +161,7 @@ const FormInput = (props) => {
                 </div>
                 <div className="sexta linha">
                 <input type="submit" value="Adicionar Gasto" className="botao-add"></input>
-                <input type="submit" value="Limpar" className="botao-clear"></input>
+                {/* <button type="button" className= "botao-clear">Limpar</button> */}
                 </div>
             </form>
         </> 
