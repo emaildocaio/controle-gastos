@@ -5,11 +5,12 @@ import raiva from './images/personagem/raiva.png'
 import './css/Personagem.css';
 
 const personagem = (props) => {
-
-    if (props.valorNovoItem > 100) {
-        return (
-        <div>Teste</div>
-    )
+    if (props.valorNovoItem > 0 & props.valorNovoItem <= 100){
+        return (<img src={gargalhada} className="personagem" alt="personagem de óculos que sorri"></img> )
+    } else if (props.valorNovoItem > 100 && props.valorNovoItem < 300 ) {
+        return (<img src={blaze} className="personagem" alt="personagem de óculos que sorri"></img>)
+    } else if (props.valorNovoItem >= 300) {
+        return ( <img src={raiva} className="personagem" alt="personagem de óculos que sorri"></img>)
     }
 
     return (
