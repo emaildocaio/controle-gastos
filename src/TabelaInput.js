@@ -2,9 +2,7 @@ import React from 'react';
 import './css/Tabela.css';
 import CorpoTabelaComponente from './CorpoTabelaComponente'
 
-const TabelaInput = (props) => {
-
-   
+const TabelaInput = (props) => {   
    
     return (
         <table class="tabela-estilo">
