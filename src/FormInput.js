@@ -75,7 +75,7 @@ const FormInput = (props) => {
 
             return (
             <div key= {item.id}>
-                <input type="radio" value={item.id} name="meio" id= {item.htmlfor} onChange = { (evento) => props.setMeioNovoItem(evento.currentTarget.value) }/>
+                <input type="radio" value={item.id} name="meio" checked={ item.id === props.meioNovoItem } id= {item.htmlfor} onChange = { (evento) => props.setMeioNovoItem(evento.currentTarget.value) }/>
                 <label value={item.id} htmlFor= {item.htmlfor}> {item.rotulo} </label>
             </div>
            
@@ -104,7 +104,8 @@ const FormInput = (props) => {
             "idCategoria": props.categoriaNovoItem,
             "data": props.dataNovoItem,
             "idMoeda": props.moedaNovoItem,
-            "valor": props.valorNovoItem
+            "valor": props.valorNovoItem,
+            "alerta": props.alertaNovoItem
         };
 
         props.setListaTabela( [...props.listaTabela, novoItem ]);
@@ -120,11 +121,7 @@ const FormInput = (props) => {
     //     props.setDataNovoItem("");
     // }
    
-    const AlertaIconeComponente = () => {
-        return (
-            <img src={despertador}></img>
-        )
-    }
+   
 
     return (
         <div> 
@@ -152,7 +149,7 @@ const FormInput = (props) => {
                 <div className="quarta linha">
                     <div>
                         <select className="categoria" value={ props.categoriaNovoItem} onChange = { (evento) => props.setCategoriaNovoItem(evento.target.value) }>
-                            <option value={ null } disabled selected>Selecione uma Categoria</option>
+                            <option value="" disabled selected name>Selecione uma Categoria</option>
                             <OpcoesCategoriasComponente/>
                         </select>
                     </div>
@@ -162,7 +159,8 @@ const FormInput = (props) => {
                     </div>
                 </div>
                 <div className="quinta linha">
-                    <input type="radio"></input>
+                    <input type="checkbox" id="campo-alerta" name="campo-alerta" onChange = { () => { props.setAlertaNovoItem(props.alertaNovoItem === 'ligado' ? 'desligado' : 'ligado')}}></input>
+                    
                     <label>Emergêncial?</label>
                 </div>
                 <div className="sexta linha">

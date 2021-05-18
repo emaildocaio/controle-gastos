@@ -6,7 +6,7 @@ const TabelaInput = (props) => {
 
     let valorSomado = 0
     const ValorTotal = props.listaTabela.map( (item) => {
-        valorSomado += item.valor
+        valorSomado += parseFloat(item.valor)
     })
     console.log(valorSomado)
    
@@ -35,7 +35,7 @@ const TabelaInput = (props) => {
                 />
             <tfoot>
                 <tr>
-                    <td colSpan="6">`O valor total gasto é: R$ ${valorSomado + props.valorNovoItem}</td>
+                    <td colSpan="6">`O valor total gasto é: R$ ${valorSomado.toFixed(2)}</td>
                 </tr>
             </tfoot>
         </table>

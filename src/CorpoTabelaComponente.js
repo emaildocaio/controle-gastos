@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './css/Tabela.css';
 import instanciaAxios from './ajax/instanciaAxios'
 import iconeBin from './images/bin2.png'
+import alarm from './images/alarm.png'
 
 const CorpoTabelaComponente = (props) => {
     return (
@@ -16,6 +17,7 @@ const CorpoTabelaComponente = (props) => {
                     data = {item.data}
                     idMoeda = {item.idMoeda}
                     valor = {item.valor}
+                    alerta = {item.alerta}
                     listaTabela = {props.listaTabela}
                     setListaTabela = { props.setListaTabela }
                     />
@@ -34,7 +36,6 @@ const LinhaTabelaComponente = (props) => {
     const [listaMeios, setListaMeios] = useState([]);
     const [listaMoedas, setListaMoedas] = useState([])
     
-
     const pegarCategorias = async () => {
         try {
             const resposta = await instanciaAxios.get('../json/categorias.json')
@@ -83,6 +84,11 @@ const LinhaTabelaComponente = (props) => {
         props.setListaTabela(_listaTabela);
     }
         
+    const AlertaIconeComponente = () => {
+        return (
+            <img src={alarm} style={{paddingLeft: '25px', width: '16px', height: 'auto'}}/>
+        )
+    }
 
     useEffect(()=> {
         pegarCategorias();
@@ -95,13 +101,15 @@ const LinhaTabelaComponente = (props) => {
     return (
         <>
             <tr>
-                <td>{props.descricao}</td>
+                <td>{props.descricao}
+                {props.alerta === "ligado" ? <AlertaIconeComponente/> : null}
+                </td>
                 <td>{meioGasto ? meioGasto.rotulo : ""}</td>
                 <td>{categoriaGasto ? categoriaGasto.descricao : ""}</td>
                 <td>{props.data}</td>
                 <td>{moedaGasto ? moedaGasto.rotulo : ""}</td>
                 <td>{props.valor}</td>
-                <td><img src={iconeBin} style={{width: '13px', height: 'auto'}} onClick={ () => { removerItem(props.id)}}/></td>
+                <td><img src={iconeBin} style={{width: '20px', height: 'auto'}} onClick={ () => { removerItem(props.id)}}/></td>
             </tr>
         </>
     )

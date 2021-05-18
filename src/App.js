@@ -14,7 +14,8 @@ function App() {
   const [moedaNovoItem, setMoedaNovoItem ] = useState('1')
   const [meioNovoItem, setMeioNovoItem] = useState('')
   const [dataNovoItem, setDataNovoItem] = useState('')
-  const [valorNovoItem, setValorNovoItem] = useState('') 
+  const [valorNovoItem, setValorNovoItem] = useState('')
+  const [alertaNovoItem, setAlertaNovoItem] = useState('desligado') 
 
   const [listaTabela, setListaTabela] = useState([]);
 
@@ -65,6 +66,9 @@ function App() {
 
             listaTabela = { listaTabela}
             setListaTabela = { setListaTabela }
+
+            alertaNovoItem = { alertaNovoItem }
+            setAlertaNovoItem = {setAlertaNovoItem}
             />
           <TabelaInput
             moedaNovoItem = { moedaNovoItem }
