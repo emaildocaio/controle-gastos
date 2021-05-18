@@ -2,7 +2,6 @@ import React from 'react';
 import './css/Tabela.css';
 import CorpoTabelaComponente from './CorpoTabelaComponente'
 
-<<<<<<< HEAD
 const TabelaInput = (props) => {
 
     let valorSomado = 0
@@ -10,9 +9,6 @@ const TabelaInput = (props) => {
         valorSomado += item.valor
     })
     console.log(valorSomado)
-=======
-const TabelaInput = (props) => {   
->>>>>>> master
    
     return (
         <table class="tabela-estilo">
@@ -39,7 +35,7 @@ const TabelaInput = (props) => {
                 />
             <tfoot>
                 <tr>
-                    <td colSpan="6">O valor total gasto é: R${valorSomado}</td>
+                    <td colSpan="6">`O valor total gasto é: R$ ${valorSomado + props.valorNovoItem}</td>
                 </tr>
             </tfoot>
         </table>

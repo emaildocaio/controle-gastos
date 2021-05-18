@@ -6,7 +6,8 @@
             "idCategoria": "3",
             "data": "2021-04-26",
             "idMoeda": "1",
-            "valor": 72.00
+            "valor": 72.00,
+            "alerta": "desligado"
         },
         { "id": "2",
             "descricao": "Passeio de Barco",
@@ -14,7 +15,8 @@
             "idCategoria": "5",
             "data": "2021-04-27",
             "idMoeda": "1",
-            "valor": 85.00
+            "valor": 85.00,
+            "alerta": "ligado"
         },
         {
             "id": "3",
@@ -23,7 +25,8 @@
             "idCategoria": "3",
             "data": "2021-04-27",
             "idMoeda": "1",
-            "valor": 13.00
+            "valor": 13.00,
+            "alerta": "desligado"
         },
         {
             "id": "4",
@@ -32,7 +35,8 @@
             "idCategoria": "1",
             "data": "2021-04-27",
             "idMoeda": "1",
-            "valor": 19.00
+            "valor": 19.00,
+            "alerta": "desligado"
         },
         {
             "id": "5",
@@ -41,7 +45,8 @@
             "idCategoria": "5",
             "data": "2021-04-28",
             "idMoeda": "1",
-            "valor": 30.00
+            "valor": 30.00,
+            "alerta": "ligado"
         },
         {
             "id": "6",
@@ -50,7 +55,8 @@
             "idCategoria": "2",
             "data": "2021-04-29",
             "idMoeda": "1",
-            "valor": 190.00
+            "valor": 190.00,
+            "alerta": "desligado"
         }
     ]
 }

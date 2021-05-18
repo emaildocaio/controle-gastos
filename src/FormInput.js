@@ -2,6 +2,7 @@ import { func } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import instanciaAxios from './ajax/instanciaAxios';
 import './css/FormInput.css';
+import despertador from './images/bin.png'
 
 
 const FormInput = (props) => {
@@ -73,10 +74,10 @@ const FormInput = (props) => {
         const listaMeiosJSX = listaMeios.map( (item ) => {
 
             return (
-            <>
+            <div key= {item.id}>
                 <input type="radio" value={item.id} name="meio" id= {item.htmlfor} onChange = { (evento) => props.setMeioNovoItem(evento.currentTarget.value) }/>
                 <label value={item.id} htmlFor= {item.htmlfor}> {item.rotulo} </label>
-            </>
+            </div>
            
             );
         });
@@ -119,9 +120,14 @@ const FormInput = (props) => {
     //     props.setDataNovoItem("");
     // }
    
+    const AlertaIconeComponente = () => {
+        return (
+            <img src={despertador}></img>
+        )
+    }
 
     return (
-        <> 
+        <div> 
             <form className="formInput" onSubmit = { incluirItem } id="myForm">
                 <div className="primeira linha">
                     <div>
@@ -164,7 +170,7 @@ const FormInput = (props) => {
                 {/* <button type="button" className= "botao-clear">Limpar</button> */}
                 </div>
             </form>
-        </> 
+        </div> 
     )
 }
 
