@@ -77,6 +77,7 @@ function App() {
             meioNovoItem = { meioNovoItem } 
             categoriaNovoItem = { categoriaNovoItem }
             dataNovoItem = { dataNovoItem }
+            
 
             listaTabela = { listaTabela}
             setListaTabela = { setListaTabela}

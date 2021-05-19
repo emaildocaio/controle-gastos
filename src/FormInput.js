@@ -10,9 +10,17 @@ const FormInput = (props) => {
     const [listaCategorias, setListaCategorias] = useState([]);
     const [listaMeios, setListaMeios] = useState([]);
     const [listaMoedas, setListaMoedas] = useState([]);
- 
+    const [listaCotacao, setListaCotacao] = useState([]);
     
-
+    const pegarCotacao = async () => {
+        try {
+            const resposta = await instanciaAxios.get('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,THB-BRL')
+            setListaCotacao(resposta.data);
+        } catch(error) {
+            console.log(error.message)
+        }
+    }; 
+ 
     const pegarCategorias = async () => {
         try {
             const resposta = await instanciaAxios.get('../json/categorias.json')
@@ -56,7 +64,7 @@ const FormInput = (props) => {
         pegarCategorias();
         pegarMeios();
         pegarMoedas();
- 
+        pegarCotacao();
     }, []);
 
     
@@ -93,6 +101,19 @@ const FormInput = (props) => {
         return listaMoedasJSX;
     }
 
+    const conversaoMoeda = () => {
+        if (props.moedaNovoItem === "3"){
+            return parseFloat(props.valorNovoItem) * parseFloat(listaCotacao.EURBRL.bid)
+        } else if (props.moedaNovoItem === "2"){
+            return parseFloat(props.valorNovoItem) * parseFloat(listaCotacao.USDBRL.bid)
+        } else if (props.moedaNovoItem === "4"){
+            return parseFloat(props.valorNovoItem) * parseFloat(listaCotacao.THBBRL.bid)
+        } else {
+            return parseFloat(props.valorNovoItem);
+        }
+    }
+
+
     const incluirItem = (event) => {
 
         event.preventDefault();
@@ -104,7 +125,7 @@ const FormInput = (props) => {
             "idCategoria": props.categoriaNovoItem,
             "data": props.dataNovoItem,
             "idMoeda": props.moedaNovoItem,
-            "valor": props.valorNovoItem,
+            "valor": conversaoMoeda(),
             "alerta": props.alertaNovoItem
         };
 

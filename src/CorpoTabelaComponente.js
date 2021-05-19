@@ -34,8 +34,23 @@ const LinhaTabelaComponente = (props) => {
     
     const [listaCategorias, setListaCategorias] = useState([]);
     const [listaMeios, setListaMeios] = useState([]);
-    const [listaMoedas, setListaMoedas] = useState([])
+    const [listaMoedas, setListaMoedas] = useState([]);
+    const [listaCotacao, setListaCotacao] = useState([]);
     
+    const pegarCotacao = async () => {
+        try {
+            const resposta = await instanciaAxios.get('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,THB-BRL')
+            setListaCotacao(resposta.data);
+        } catch(error) {
+            console.log(error.message)
+        }
+    }; 
+
+
+
+
+
+
     const pegarCategorias = async () => {
         try {
             const resposta = await instanciaAxios.get('../json/categorias.json')
@@ -94,6 +109,7 @@ const LinhaTabelaComponente = (props) => {
         pegarCategorias();
         pegarMeios();
         pegarMoedas();
+        pegarCotacao();
     }, []);
 
 
@@ -107,8 +123,7 @@ const LinhaTabelaComponente = (props) => {
                 <td>{meioGasto ? meioGasto.rotulo : ""}</td>
                 <td>{categoriaGasto ? categoriaGasto.descricao : ""}</td>
                 <td>{props.data}</td>
-                <td>{moedaGasto ? moedaGasto.rotulo : ""}</td>
-                <td>{props.valor}</td>
+                <td>R$ {props.valor.toFixed(2)}</td>
                 <td><img src={iconeBin} style={{width: '20px', height: 'auto'}} onClick={ () => { removerItem(props.id)}}/></td>
             </tr>
         </>

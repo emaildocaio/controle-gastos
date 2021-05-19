@@ -8,7 +8,6 @@ const TabelaInput = (props) => {
     const ValorTotal = props.listaTabela.map( (item) => {
         valorSomado += parseFloat(item.valor)
     })
-    console.log(valorSomado)
    
     return (
         <table class="tabela-estilo">
@@ -18,8 +17,7 @@ const TabelaInput = (props) => {
                     <th>Meio</th>
                     <th>Categoria</th>
                     <th>Data</th>
-                    <th>Moeda</th>
-                    <th>Valor</th>
+                    <th>Valor em R$</th>
                     <th>Excluir</th>
                 </tr>
             </thead>
