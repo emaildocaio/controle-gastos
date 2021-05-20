@@ -3,8 +3,7 @@ form {
     background-color: white;
     border-radius: 10px;
     padding: 30px;
-    width: 29rem;
-    margin-bottom: 7rem;;
+    margin: 0 20px 7rem 20px;
 }
 
 .formInput {
@@ -23,27 +22,25 @@ input {
 }
 
 .primeira {
+    display: flex;
     justify-content: space-between;
 }
 
 .primeira select {
-    width: 6.5rem;
     border: 0;
     font-size: 1.3rem;
 }
 
 .primeira input[type="number"]{
     color: gray;
-    width: 14rem;
     border: 0;
     text-align: right;
-    font-size: 1.8rem;
+    font-size: 1rem;
 }
 
 select {
     margin-top: 1rem;
     height: 2rem;
-    width: 7rem;
     color: gray;
 }
 
@@ -53,7 +50,6 @@ option {
 
 
 .primeira, .terceira, .quarta, .quinta {
-    display: flex;
     align-items: center;
 }
 
@@ -65,14 +61,14 @@ option {
     color: gray;
 }
 .segunda input[type="text"]{
-    width: 28.5rem;
+   
     height: 2rem;
     color: gray;
     margin-top: 0.5rem;
+    width: 100%;
 }
 
 .meios input[type="text"]{
-    width: 28.5rem;
     height: 2rem;
     color: gray;
     margin-top: 0.5rem;
@@ -80,17 +76,21 @@ option {
 
 .terceira{
     justify-content: space-around;
+    display: flex;
+    align-items: center
+    ;
 }
 
 .quarta{
     justify-content: space-between;
     align-items: center;
+    margin-top: -2em;
 }
 
 .quarta select {
-    width: 15rem;
     border: 0;
     font-size: 1.2rem;
+    margin-bottom: 0.5em;
 }
 
 .quarta label{
@@ -113,14 +113,16 @@ option {
   
   .terceira label {
     display: inline-block;
-    width: 100px;
-    height: 50px;
+    height: 40px;
     text-align: center;
     border: 1px solid #ddd;
-    line-height: 50px;
+    line-height: 3em;
     cursor: pointer;
     border: 1px solid #719f7f;
     color: #719f7f;
+    font-size: 0.8em;
+    padding: 0 0.4em;
+    margin: 0 3px;
   }
   
   
@@ -137,7 +139,7 @@ option {
       background-color: #b6cfc0;
       border: 0;
       color: white;
-      padding: 0.6rem 7rem;
+      padding: 0.6rem 3rem;
   }
 
   .botao-clear{
@@ -149,4 +151,26 @@ option {
 
   input[type="submit"]:hover{
     cursor: pointer;
+  }
+
+  @media only screen and (min-width: 425px) {
+    .terceira label {
+        height: 40px;
+        font-size: 0.9em;
+        padding: 0 0.8em;
+        margin: 0 3px;
+      }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .terceira label {
+        height: 60px;
+        font-size: 1.5em;
+        padding: 0 0.8em 0.4em 0.8em;
+        margin: 0 3px;
+      }
+
+      .quarta {
+          display: flex;
+      }
   }

@@ -33,7 +33,7 @@ const TabelaInput = (props) => {
                 />
             <tfoot>
                 <tr>
-                    <td colSpan="6">`O valor total gasto é: R$ ${valorSomado.toFixed(2)}</td>
+                    <td colSpan="6">O valor total gasto em reais é: R$ ${valorSomado.toFixed(2)}</td>
                 </tr>
             </tfoot>
         </table>
