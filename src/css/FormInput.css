@@ -35,7 +35,7 @@ input {
     color: gray;
     border: 0;
     text-align: right;
-    font-size: 1rem;
+    font-size: 1.1em;
 }
 
 select {
@@ -153,6 +153,14 @@ option {
     cursor: pointer;
   }
 
+  .conversao {
+      margin-top: -1.5em;
+      margin-bottom: 2em;
+      color: gray;
+      font-size: 0.8em;
+      text-align: left;
+  }
+
   @media only screen and (min-width: 425px) {
     .terceira label {
         height: 40px;
@@ -173,4 +181,28 @@ option {
       .quarta {
           display: flex;
       }
+  }
+
+  @media only screen and (min-width: 1024px) {
+        .formInput {
+            width: 250px;
+        }
+
+        .quarta {
+            display: block;
+        }
+
+        .terceira label {
+           
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            line-height: 3em;
+            cursor: pointer;
+            border: 1px solid #719f7f;
+            color: #719f7f;
+            font-size: 0.8em;
+            padding: 0 0.4em;
+            margin: 0 3px;
+          }
   }

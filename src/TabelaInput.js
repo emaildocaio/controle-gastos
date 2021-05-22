@@ -1,6 +1,7 @@
 import React from 'react';
 import './css/Tabela.css';
 import CorpoTabelaComponente from './CorpoTabelaComponente'
+import moment from 'moment';
 
 const TabelaInput = (props) => {
 
@@ -25,7 +26,7 @@ const TabelaInput = (props) => {
                 listaTabela = {props.listaTabela}
                 setListaTabela = {props.setListaTabela}
                 moedaNovoItem = { props.moedaNovoItem}
-                valorNovoItem = { props.valorNovoItem}
+                valorNovoItem = { props.valorNovoItem.replace('.', ',')}
                 descricaoNovoItem = { props.descricaoNovoItem } 
                 meioNovoItem = {props.meioNovoItem}
                 categoriaNovoItem = { props.categoriaNovoItem }
@@ -33,7 +34,7 @@ const TabelaInput = (props) => {
                 />
             <tfoot>
                 <tr>
-                    <td colSpan="6">O valor total gasto em reais é: R$ ${valorSomado.toFixed(2)}</td>
+                    <td colSpan="6">O valor total gasto em reais é: R$ ${valorSomado.toFixed(2).replace('.', ',')}</td>
                 </tr>
             </tfoot>
         </table>

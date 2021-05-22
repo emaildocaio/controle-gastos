@@ -5,12 +5,14 @@ import './css/FormInput.css';
 import despertador from './images/bin.png'
 
 
+
 const FormInput = (props) => {
 
     const [listaCategorias, setListaCategorias] = useState([]);
     const [listaMeios, setListaMeios] = useState([]);
     const [listaMoedas, setListaMoedas] = useState([]);
     const [listaCotacao, setListaCotacao] = useState([]);
+    const [novoItem, setNovoItem] = useState({})
     
     const pegarCotacao = async () => {
         try {
@@ -59,6 +61,8 @@ const FormInput = (props) => {
     const moedaGasto = listaMoedas.find( item => {
         return item.id === listaMoedas.idMoeda;
     })
+
+    
 
     useEffect(()=> {
         pegarCategorias();
@@ -130,6 +134,7 @@ const FormInput = (props) => {
         };
 
         props.setListaTabela( [...props.listaTabela, novoItem ]);
+        
         // limparCampo();
     }
 
@@ -141,21 +146,33 @@ const FormInput = (props) => {
     //     props.setMeioNovoItem("");
     //     props.setDataNovoItem("");
     // }
-   
+    const valorReal = () => {
+        if (props.moedaNovoItem === "2"){
+            return (<p>O valor do Dólar agora é R${parseFloat(listaCotacao.USDBRL.bid).toFixed(2).replace('.', ',')}</p>)
+        } else if (props.moedaNovoItem === "3") {
+            return (<p>O valor do Euro agora é R${parseFloat(listaCotacao.EURBRL.bid).toFixed(2).replace('.', ',')}</p>)
+        } else if (props.moedaNovoItem === "4"){
+            return (<p>O valor do Baht agora é R${parseFloat(listaCotacao.THBBRL.bid).toFixed(2).replace('.', ',')}</p>)
+        } else {
+        }
+    }
    
 
     return (
         <div> 
             <form className="formInput" onSubmit = { incluirItem } id="myForm">
-                <div className="primeira linha">
+            <div>
+                    <div className="primeira linha">
                     <div>
                         <select id="moeda" value = {props.moedaNovoItem } onChange = { (evento) => props.setMoedaNovoItem(evento.target.value) }>
                             <OpcoesMoedasComponente/>
-                        </select>
+                        </select>                        
                     </div>
                     <div>
                         <input type="number" value= {props.valorNovoItem } placeholder="0,00" onChange = { (evento) => props.setValorNovoItem(evento.target.value) }></input>
                     </div>
+                    </div>
+                    <div className="conversao">{valorReal()}</div>
                 </div>
 
                 <div className="segunda linha">

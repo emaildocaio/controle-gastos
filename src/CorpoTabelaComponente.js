@@ -3,6 +3,8 @@ import './css/Tabela.css';
 import instanciaAxios from './ajax/instanciaAxios'
 import iconeBin from './images/bin2.png'
 import alarm from './images/alarm.png'
+import moment from 'moment';
+import 'moment/locale/pt-br';
 
 const CorpoTabelaComponente = (props) => {
     return (
@@ -45,11 +47,6 @@ const LinhaTabelaComponente = (props) => {
             console.log(error.message)
         }
     }; 
-
-
-
-
-
 
     const pegarCategorias = async () => {
         try {
@@ -112,7 +109,7 @@ const LinhaTabelaComponente = (props) => {
         pegarCotacao();
     }, []);
 
-
+    const data = props.data
 
     return (
         <>
@@ -122,8 +119,8 @@ const LinhaTabelaComponente = (props) => {
                 </td>
                 <td>{meioGasto ? meioGasto.rotulo : ""}</td>
                 <td>{categoriaGasto ? categoriaGasto.descricao : ""}</td>
-                <td>{props.data}</td>
-                <td>R$ {props.valor.toFixed(2)}</td>
+                <td>{moment(data).format("LL")}</td>
+                <td>R$ {props.valor.toFixed(2).replace('.', ',')}</td>
                 <td><img src={iconeBin} style={{width: '20px', height: 'auto'}} onClick={ () => { removerItem(props.id)}}/></td>
             </tr>
         </>
