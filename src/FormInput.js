@@ -122,8 +122,20 @@ const FormInput = (props) => {
 
         event.preventDefault();
 
+
+        let idUltimoElemento = "0";
+
+        if (props.listaTabela.length){
+            const indiceUltimoElemento = props.listaTabela.length - 1;
+            const ultimoElemento = props.listaTabela[ indiceUltimoElemento ];
+            idUltimoElemento = ultimoElemento.id;
+        }
+
+        const NovoItemId = parseInt( idUltimoElemento ) + 1;
+
+
         const novoItem = {
-            "id": props.listaTabela.length.toString(),
+            "id": NovoItemId.toString(),
             "descricao": props.descricaoNovoItem,
             "idMeio": props.meioNovoItem,
             "idCategoria": props.categoriaNovoItem,
@@ -134,18 +146,20 @@ const FormInput = (props) => {
         };
 
         props.setListaTabela( [...props.listaTabela, novoItem ]);
+
         
-        // limparCampo();
+        limparCampo();
     }
 
-    // function limparCampo() {
-    //     props.setValorNovoItem("");
-    //     props.setDescricaoNovoItem("");
-    //     props.setMoedaNovoItem("");
-    //     props.setCategoriaNovoItem("");
-    //     props.setMeioNovoItem("");
-    //     props.setDataNovoItem("");
-    // }
+    function limparCampo() {
+        props.setValorNovoItem("");
+        props.setDescricaoNovoItem("");
+        props.setMoedaNovoItem("");
+        props.setCategoriaNovoItem("");
+        props.setMeioNovoItem("");
+        props.setDataNovoItem("");
+    }
+
     const valorReal = () => {
         if (props.moedaNovoItem === "2"){
             return (<p>O valor do Dólar agora é R${parseFloat(listaCotacao.USDBRL.bid).toFixed(2).replace('.', ',')}</p>)
@@ -177,7 +191,7 @@ const FormInput = (props) => {
 
                 <div className="segunda linha">
                     <label>Descrição</label>
-                    <input name="descricao" type="text" required onChange = { (evento)=> {props.setDescricaoNovoItem(evento.target.value)}}></input>
+                    <input name="descricao" value= { props.descricaoNovoItem} type="text" required onChange = { (evento)=> {props.setDescricaoNovoItem(evento.target.value)}}></input>
                     
                 </div>
                 <div className="select-size terceira linha">
@@ -203,7 +217,7 @@ const FormInput = (props) => {
                 </div>
                 <div className="sexta linha">
                 <input type="submit" value="Adicionar Gasto" className="botao-add"></input>
-                {/* <button type="button" className= "botao-clear">Limpar</button> */}
+                {/* <button type="button" className= "botao-clear" onClick= { limparCampo()}>Limpar</button> */}
                 </div>
             </form>
         </div> 
